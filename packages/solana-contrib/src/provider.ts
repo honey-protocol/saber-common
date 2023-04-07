@@ -142,7 +142,7 @@ export class SolanaTransactionSigner implements TransactionSigner {
     tx.lastValidBlockHeight = lastValidBlockHeight;
     tx.recentBlockhash = blockhash;
 
-    await this.wallet.signTransaction(tx);
+    tx = await this.wallet.signTransaction(tx);
     signers
       .filter((s): s is Signer => s !== undefined)
       .forEach((kp) => {
